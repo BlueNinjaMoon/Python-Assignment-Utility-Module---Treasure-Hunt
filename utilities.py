@@ -1,4 +1,3 @@
-from os import system
 
 def getValidInt(prompt:str, min=0, max=100) -> int:
     """
@@ -53,11 +52,13 @@ def getNonEmptyString(prompt) -> str:
     while playerinput == "":
         print("Invalid response.")
         playerinput = input(prompt).strip()
+    return playerinput
 
 def clearScreen():
     """
     Clear the Windows console.
     """
+    from os import system
     system("cls")
 
 def pause(message="Press Enter to continue..."):
