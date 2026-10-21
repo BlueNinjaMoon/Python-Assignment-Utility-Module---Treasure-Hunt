@@ -81,18 +81,26 @@ def printNumberedList(items):
     if index == -1:
         print("No items to display.")
     else:
-        None
+        for index, item in enumerate(items, start=1):
+            print(f"{index}. {item}")
 
 def filterByLength(items, minLength:int, maxLength:int):
     """
     Use a list comprehension to return strings with lengths in the inclusive range, preserving order.
     """
+    return {item for item in items if minLength <= len(item) <= maxLength}
 
 def analyzeNumbers(numbers:int):
     """
     Use a list comprehension to collect positive numbers.
     Return four values: positive-number list, positive count, negative count, zero count.
     """
+    positiveNumbers = [number for number in numbers if number > 0]
+    positiveCount = len(positiveNumbers)
+    negativeCount = len([number for number in numbers if number < 0])
+    zeroCount = len([number for number in numbers if number == 0])
+
+    return positiveNumbers, positiveCount, negativeCount, zeroCount
 
 if __name__ == "__main__":
     # Test each utility fuction here.
@@ -103,8 +111,9 @@ if __name__ == "__main__":
     print("Screen Clear (Only prints this in __main__)")
     userin = pause("Press enter to continue.")
     userin = printNumberedList(["", "a", "2"])
-    userin = filterByLength()
-    userin = analyzeNumbers()
+    print(filterByLength(["623","21","8234","1","5","10","9"], 1, 10))
+    print(analyzeNumbers([1, 2, 3, -5, -10, 0, 11]))
+    
 
 
 
