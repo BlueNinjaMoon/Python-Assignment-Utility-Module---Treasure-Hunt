@@ -1,4 +1,4 @@
-import random
+from random import choice
 import utilities
 
 currentrnd = 1
@@ -38,7 +38,7 @@ while roundplayed != maxrnd:
     utilities.printNumberedList(["Dark Cave","Sandy Beach","Ancient Ruins"])
     utilities.getValidInt("Enter your choice (1-3): ",1,3)
 
-    found = random.choice(["treasurefnd","trapfnd","none"])
+    found = choice(["treasurefnd","trapfnd","none"])
 
     if found == "treasurefnd":
         print(f"You found the treasure! (+{treasure} Points.)")
